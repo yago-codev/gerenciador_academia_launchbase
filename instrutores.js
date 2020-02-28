@@ -57,7 +57,7 @@ exports.show = (req, res) => {
   return res.render('instrutores/show', { instrutor });
 }
 
-// update 
+// update ... método para retornar os dados dos instrutores dentro do form de edição
 exports.edit = (req, res) => {
   const { id } = req.params;
   
@@ -84,6 +84,35 @@ exports.edit = (req, res) => {
   }
 
   return res.render('instrutores/edit', { instrutor });
+}
+
+// update ... método para enviar os dados do form, atualizando os registros do instrutor
+exports.put = (req, res) => {
+  const { id } = req.body; // capturando o id presente na url
+
+  const foundInstructor = data.instrutores.find((instrutor) => {
+    return id == instrutor.id;
+  });
+
+  if (!foundInstructor) return res.send('Instrutor não encontrado!');
+
+  const instrutor = {
+    ...foundInstructor,
+    ...req.body,
+    nascimento: Date.parse(req.body.nascimento) // fazendo o parse da data de nascimento para o formato timestamp
+  }
+
+  // buscando o id do usuário a ser editado dentro do arquivo data.json
+  // como o id do usuário está contido em um array, iremos acessar o índice exato do usuário através do id que pegamos no req.body
+  // estamos subtraindo -1 do valor do id porque um array sempre começa na posição 0, por exemplo:
+  // { instrutores: [ { id: 1 }] };
+  data.instrutores[id - 1] = instrutor;
+
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
+    if (err) return res.send('Não foi possível gravar o arquivo!');
+
+    return res.redirect(`/instrutores/${id}`);
+  });
 }
 
 // delete

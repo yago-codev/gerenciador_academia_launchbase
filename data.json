@@ -47,12 +47,12 @@
     },
     {
       "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
-      "nome": "Teste Tres",
-      "nascimento": 700790400000,
+      "nome": "Teste Teste",
+      "nascimento": 669168000000,
       "data_registro": 1582780277122,
-      "servicos": "Bodybuilding, Musculação",
-      "genero": "M",
-      "id": 6
+      "servicos": "Bodybuilding, Musculação, Natação",
+      "genero": "F",
+      "id": "6"
     },
     {
       "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
