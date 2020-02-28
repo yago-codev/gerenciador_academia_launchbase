@@ -53,15 +53,6 @@
       "servicos": "Bodybuilding, Musculação, Natação",
       "genero": "F",
       "id": "6"
-    },
-    {
-      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
-      "nome": "Godofredo",
-      "nascimento": 700790400000,
-      "data_registro": 1582780364416,
-      "servicos": "Musculação",
-      "genero": "M",
-      "id": 7
     }
   ]
 }

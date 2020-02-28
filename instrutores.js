@@ -2,6 +2,11 @@ const fs = require('fs');
 const data = require('./data.json');
 const { idade, dataNascimento } = require('./utils');
 
+// index
+exports.index = (req, res) => {
+  return res.render('instrutores/index', { instrutores: data.instrutores });
+}
+
 // create 
 exports.post = (req, res) => {
   // vai criar um array com as chaves do objeto que é retornado por cada campo do form
@@ -116,3 +121,16 @@ exports.put = (req, res) => {
 }
 
 // delete
+exports.delete = (req, res) => {
+  const { id } = req.body;
+
+  const filteredInstructors = data.instrutores.filter((instrutor) => instrutor.id != id);
+
+  data.instrutores = filteredInstructors;
+
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
+    if (err) return res.send('Não foi possível gravar o arquivo!');
+
+    return res.redirect('/instrutores');
+  });
+}

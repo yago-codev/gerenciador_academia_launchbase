@@ -3,12 +3,10 @@ const routes = express.Router();
 const instrutores = require('./instrutores');
 
 routes.get('/', (req, res) => {
-  return res.redirect('/instrutores');
+  return res.redirect('/instrutores')
 });
 
-routes.get('/instrutores', (req, res) => {
-  return res.render('instrutores/index');
-});
+routes.get('/instrutores', instrutores.index);
 
 routes.get('/instrutores/registro', (req, res) => {
   return res.render('instrutores/create');
@@ -20,7 +18,9 @@ routes.get('/instrutores/:id/editar', instrutores.edit);
 
 routes.post('/instrutores', instrutores.post);
 
-routes.put('/instrutores', instrutores.put)
+routes.put('/instrutores', instrutores.put);
+
+routes.delete('/instrutores', instrutores.delete);
 
 routes.get('/membros', (req, res) => {
   return res.send('/membros');
