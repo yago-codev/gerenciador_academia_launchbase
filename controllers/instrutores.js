@@ -1,6 +1,6 @@
 const fs = require('fs');
-const data = require('./data.json');
-const { idade, dataNascimento } = require('./utils');
+const data = require('../data.json');
+const { idade, dataNascimento } = require('../utils');
 
 // index
 exports.index = (req, res) => {
@@ -8,6 +8,10 @@ exports.index = (req, res) => {
 }
 
 // create 
+exports.create = (req, res) => {
+  return res.render('instrutores/create');
+}
+
 exports.post = (req, res) => {
   // vai criar um array com as chaves do objeto que é retornado por cada campo do form
   const keys = Object.keys(req.body); // resultado = ["avatar_url","nome","nascimento","genero","servicos"]
@@ -94,9 +98,13 @@ exports.edit = (req, res) => {
 // update ... método para enviar os dados do form, atualizando os registros do instrutor
 exports.put = (req, res) => {
   const { id } = req.body; // capturando o id presente na url
+  let index = 0;
 
-  const foundInstructor = data.instrutores.find((instrutor) => {
-    return id == instrutor.id;
+  const foundInstructor = data.instrutores.find((instrutor, foundIndex) => {
+    if (id == instrutor.id) {
+      index = foundIndex;
+      return true;
+    }
   });
 
   if (!foundInstructor) return res.send('Instrutor não encontrado!');
@@ -104,14 +112,15 @@ exports.put = (req, res) => {
   const instrutor = {
     ...foundInstructor,
     ...req.body,
-    nascimento: Date.parse(req.body.nascimento) // fazendo o parse da data de nascimento para o formato timestamp
+    nascimento: Date.parse(req.body.nascimento), // fazendo o parse da data de nascimento para o formato timestamp
+    id: Number(req.body.id),
   }
 
   // buscando o id do usuário a ser editado dentro do arquivo data.json
   // como o id do usuário está contido em um array, iremos acessar o índice exato do usuário através do id que pegamos no req.body
   // estamos subtraindo -1 do valor do id porque um array sempre começa na posição 0, por exemplo:
   // { instrutores: [ { id: 1 }] };
-  data.instrutores[id - 1] = instrutor;
+  data.instrutores[index] = instrutor;
 
   fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
     if (err) return res.send('Não foi possível gravar o arquivo!');

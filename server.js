@@ -16,7 +16,8 @@ server.set('view engine', 'njk');
 nunjucks.configure('views', {
   express: server,
   autoescape: false, // vai permitir a inclusão de HTML dentro do njk
-  noCache: true // desabilitando o cache do njk
+  noCache: true, // desabilitando o cache do njk
+  watch: true
 });
 
 server.listen(5000, function() {
