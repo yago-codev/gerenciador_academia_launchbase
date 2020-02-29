@@ -36,7 +36,7 @@
 <div class="item">
   <div>Sexo</div>
   <div>
-    <span>
+    <span class="btn-servicos">
       <input 
         type="radio" 
         name="genero" 
@@ -48,8 +48,8 @@
       Masculino
     </span>
 
-    <span>
-      <input 
+    <span class="btn-servicos">
+      <input
         type="radio" 
         name="genero" 
         value="F"
@@ -66,7 +66,7 @@
   <div>Area de atuação</div>
   <div>
     <input
-      {% if not pageEdit %} class="btn-servicos" {% endif %}
+      {% if not pageEdit %} {% elif not pageCreate %} class="btn-servicos" {% endif %}
       type="text" 
       name="servicos"
       placeholder="Separe os serviços prestados por vírgula"

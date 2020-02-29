@@ -10,7 +10,7 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/instrutores', instrutores.index);
-routes.get('/instrutores/registrar', instrutores.create);
+routes.get('/instrutores/criar', instrutores.create);
 routes.get('/instrutores/:id', instrutores.show);
 routes.get('/instrutores/:id/editar', instrutores.edit);
 routes.post('/instrutores', instrutores.post);
@@ -21,7 +21,7 @@ routes.get('/instrutores', instrutores.index);
 
 // membros
 routes.get('/membros', membros.index);
-routes.get('/membros/registrar', membros.create);
+routes.get('/membros/criar', membros.create);
 routes.get('/membros/:id', membros.show);
 routes.get('/membros/:id/editar', membros.edit);
 routes.post('/membros', membros.post);

@@ -1,20 +1,11 @@
-const modalOverlay = document.querySelector('.modal-overlay')
-const cards = document.querySelectorAll('.card')
+const currentPage = location.pathname; // retorna o caminho da url (ñ incluindo os parâmetros)
+const menuItems = document.querySelectorAll('header .links a');
 
-// percorrendo os cards de vídeos e adicionando um evento de clique para cada um deles:
-for (let card of cards) {
-  card.addEventListener('click', function() {
-    const videoId = card.getAttribute('id'); // pegando o id de cada vídeo
-    window.location.href = `/video?id=${videoId}`;
-    // modalOverlay.classList.add('active'); // ativando a overlay de opacidade para escurecer o fundo da view
-    // modalOverlay.querySelector('iframe').src = `https://www.youtube.com/embed/${videoId}`; // exibindo o vídeo na modal dinamicamente
-  });
+for (item of menuItems) {
+  // para incluirmos os parâmetros da url dentro do caminho que foi capturado em currentPage, 
+  // será utilizado o includes(), passando como parâmetro o link estático contido nos itens de menu.
+  // desse modo, poderemos navegar em páginas que contenham parâmetros, fazendo com que o link ativo funcione corretamente.
+  if (currentPage.includes(item.getAttribute('href'))) {
+    item.classList.add('active'); 
+  }
 }
-
-/*
-// fechando a modal e o overlay ao clicar no ícone de "X"
-document.querySelector('.close-modal').addEventListener('click', function() {
-  modalOverlay.classList.remove('active');
-  modalOverlay.querySelector('iframe').src = ''; // removendo o vídeo, fazendo com que ele deixe de ser reproduzido
-});
-*/
