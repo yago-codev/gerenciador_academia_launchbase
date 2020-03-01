@@ -89,7 +89,7 @@ exports.edit = (req, res) => {
 
   const instrutor = {
     ...foundInstructor,
-    nascimento: dataNascimento(foundInstructor.nascimento),
+    nascimento: dataNascimento(foundInstructor.nascimento).iso // evocando a função do arquivo utils.js que formata a data,
   }
 
   return res.render('instrutores/edit', { instrutor });

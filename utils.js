@@ -21,7 +21,12 @@ module.exports = {
 
     const dia = `0${ data.getUTCDate() }`.slice(-2); // retorna os dias do mês, de 1 a 31.UTC
 
-    return `${ano}-${mes}-${dia}`;
-
+    return {
+      dia,
+      mes,
+      ano,
+      iso: `${ano}-${mes}-${dia}`,
+      aniversario: `${dia}/${mes}`
+    }
   }
 }

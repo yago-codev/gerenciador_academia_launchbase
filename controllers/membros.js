@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('../data.json');
-const { idade, dataNascimento } = require('../utils');
+const { dataNascimento } = require('../utils');
 
 // index
 exports.index = (req, res) => {
@@ -57,7 +57,7 @@ exports.show = (req, res) => {
 
   const membro = {
     ...foundMember,
-    idade: idade(foundMember.nascimento),
+    nascimento: dataNascimento(foundMember.nascimento).aniversario,
   }
 
   return res.render('membros/show', { membro });
@@ -86,7 +86,7 @@ exports.edit = (req, res) => {
 
   const membro = {
     ...foundMember,
-    nascimento: dataNascimento(foundMember.nascimento),
+    nascimento: dataNascimento(foundMember.nascimento).iso,
   }
 
   return res.render('membros/edit', { membro });

@@ -2,28 +2,6 @@
   "membros": [
     {
       "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
-      "nome": "Yago",
-      "email": "yago@teste.com",
-      "nascimento": 700790400000,
-      "genero": "M",
-      "tipo_sanguineo": "A+",
-      "peso": "70",
-      "altura": "165",
-      "id": 1
-    },
-    {
-      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
-      "nome": "Vithor",
-      "email": "vithor@email.com",
-      "nascimento": 700790400000,
-      "genero": "M",
-      "tipo_sanguineo": "A+",
-      "peso": "67",
-      "altura": "175",
-      "id": 2
-    },
-    {
-      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
       "nome": "Isadora",
       "email": "isadora@email.com",
       "nascimento": 700790400000,
@@ -32,6 +10,28 @@
       "peso": "55",
       "altura": "160",
       "id": 3
+    },
+    {
+      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "nome": "Vithor",
+      "email": "vithor@email.com",
+      "nascimento": 700790400000,
+      "genero": "M",
+      "tipo_sanguineo": "O+",
+      "peso": "56",
+      "altura": "175",
+      "id": 4
+    },
+    {
+      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "nome": "Catatau",
+      "email": "catatau@email.com",
+      "nascimento": 700790400000,
+      "genero": "M",
+      "tipo_sanguineo": "A-",
+      "peso": "100",
+      "altura": "190",
+      "id": 5
     }
   ],
   "instrutores": [
@@ -83,10 +83,10 @@
     {
       "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
       "nome": "Teste Teste",
-      "nascimento": 637632000000,
+      "nascimento": 700790400000,
       "data_registro": 1582780277122,
-      "servicos": "Bodybuilding, Musculação, Natação",
-      "genero": "F",
+      "servicos": "Bodybuilding, Musculação, Natação, Crossfit",
+      "genero": "M",
       "id": 6
     }
   ]

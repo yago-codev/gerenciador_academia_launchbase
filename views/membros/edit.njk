@@ -4,27 +4,37 @@
 
 {% block content %}
   <div class="card">
-    <section class="avatar" style="background: url({{ instrutor.avatar_url }}) no-repeat center center / cover"></section>
+    <section class="avatar" style="background: url({{ membro.avatar_url }}) no-repeat center center / cover"></section>
     <section class="details">
 
-      <form method="POST" action="/instrutores?_method=PUT">
-        <h3>Editar Instrutor</h3>
+      <form method="POST" action="/membros?_method=PUT">
+        <h3>Editar Membro</h3>
 
-        {% include 'instrutores/fields.njk' %}
+        {% include 'membros/fields.njk' %}
 
         <input 
           type="hidden" 
           name="id" 
-          value={{instrutor.id}}
+          value={{membro.id}}
         >
       </form>
 
-      <form id="form-delete" method="POST" action="/instrutores?_method=DELETE">
-        <input type="hidden" name="id" value="{{instrutor.id}}">
+      <form id="form-delete" method="POST" action="/membros?_method=DELETE">
+        <input type="hidden" name="id" value="{{membro.id}}">
         <button type="submit">Deletar</button>
       </form>
     </section>
-
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <script>
+    const formDelete = document.querySelector('#form-delete');
+        
+    formDelete.addEventListener('submit', (event) => {
+      const confirmation = confirm('Deseja Deletar?');
+
+      if (!confirmation) {
+        event.preventDefault();
+      }
+    });
+  </script>
 {% endblock content %}
