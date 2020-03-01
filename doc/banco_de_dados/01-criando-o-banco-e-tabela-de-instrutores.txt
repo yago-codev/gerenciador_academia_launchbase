@@ -1,0 +1,35 @@
+01) Instalando Postgres no Mac:
+
+    brew install postgres
+
+02) Iniciando o Postgres:
+
+    pg_ctl -D /usr/local/var/postgres start
+
+03) Criando novo banco de dados através do Postbird:
+
+    CREATE DATABASE gerenciadoracademia
+
+04) Criando nova tabela:
+
+    Nome:
+    instrutores
+
+05) Criando novos campos para o nosso "modelo" de tabela:
+
+    nome:
+    avatar_url
+
+    tipo:
+    text
+
+    allow null: // o campo pode ficar sem ser preenchido
+    true
+
+    ======
+
+    ...
+
+    devemos nos ater ao tipo da coluna nascimento e da coluna data_registro, 
+    que será: timestamp without time zone, 
+    pois estamos realizando o tratamento do timestamp utilizando o formato UTC e tudo mais...
