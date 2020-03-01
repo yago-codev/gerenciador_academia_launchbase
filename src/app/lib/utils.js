@@ -1,5 +1,5 @@
 module.exports = {
-  idade: function(timestamp) {
+  idade(timestamp) {
     const dataAtual = new Date();
     const dataAniversario = new Date(timestamp);
   
@@ -12,7 +12,7 @@ module.exports = {
   
     return idade;
   },
-  dataNascimento: function(timestamp) {
+  dataNascimento(timestamp) {
     const data = new Date(timestamp);
 
     const ano = data.getUTCFullYear();
