@@ -2,39 +2,45 @@
 
 {% block content %}
   <div class="card">
-    <section class="avatar" style="background: url({{instrutor.avatar_url}}) no-repeat center center / cover"></section>
+    <section class="avatar" style="background: url({{membro.avatar_url}}) no-repeat center center / cover"></section>
     <section class="details">
       <h3>Detalhes</h3>
       <div class="item">
-        <div>Instrutor</div>
-        <div>{{instrutor.nome}}</div>
+        <div>Membro</div>
+        <div>{{membro.nome}}</div>
       </div>
 
       <div class="item">
-        <div>Idade</div>
-        <div>{{instrutor.idade}}</div>
+        <div>Email</div>
+        <div>{{membro.email}}</div>
+      </div>
+
+      <div class="item">
+        <div>Aniversário</div>
+        <div>{{membro.nascimento}}</div>
       </div>
 
       <div class="item">
         <div>Sexo</div>
-        <div>{{"Masculino" if instrutor.genero == "M" else "Feminino"}}</div>
+        <div>{{"Masculino" if membro.genero == "M" else "Feminino"}}</div>
       </div>
 
       <div class="item">
-        <div>Acompanhamento</div>
-        <div>
-          {% for servico in instrutor.servicos %}
-            <span>{{servico}}</span>
-          {% endfor %}
-        </div>
+        <div>Tipo Sanguíneo</div>
+        <div>{{ membro.tipo_sanguineo }}</div>
       </div>
 
       <div class="item">
-        <div>Desde</div>
-        <div>{{instrutor.data_registro}}</div>
+        <div>Peso (Kg)</div>
+        <div>{{membro.peso}}</div>
       </div>
 
-      <a href="/instrutores/{{instrutor.id}}/editar" class="button">Editar</a>
+      <div class="item">
+        <div>Altura (cm)</div>
+        <div>{{membro.altura}}</div>
+      </div>
+
+      <a href="/membros/{{membro.id}}/editar" class="button">Editar</a>
     </section>
   </div>
 {% endblock content %}

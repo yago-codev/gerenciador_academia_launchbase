@@ -20,26 +20,26 @@ exports.post = (req, res) => {
     if (req.body[key] == '') return res.send('Por favor, preencha todos os campos!');
   }
   
-  let { avatar_url, nascimento, nome, genero } = req.body;
+  nascimento = Date.parse(req.body.nascimento);
+
+  let id = 1;
+  const lastMember = data.membros[data.membros.length - 1];
   
-  nascimento = Date.parse(nascimento);
-  const data_registro = Date.now(); // criando um campo no corpo da requisição para pegar a data em que o registro ocorreu
-  const id = Number(data.membros.length + 1);
+  if (lastMember) {
+    id = lastMember.id + 1;
+  }
 
 
   data.membros.push({
-    avatar_url,
-    nome,
-    nascimento,
-    data_registro,
-    genero,
-    id
+    ...req.body,
+    id,
+    nascimento
   }); // inserindo os dados do formulário dentro do array do arquivo data.json
 
   fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
     if (err) return res.send('Ocorreu um erro ao tentar gravar o arquivo!');
 
-    return res.redirect('/membros');
+    return res.redirect(`/membros/${id}`);
   });
 
   // return res.send(req.body);

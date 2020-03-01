@@ -1,5 +1,39 @@
 {
-  "membros": [],
+  "membros": [
+    {
+      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "nome": "Yago",
+      "email": "yago@teste.com",
+      "nascimento": 700790400000,
+      "genero": "M",
+      "tipo_sanguineo": "A+",
+      "peso": "70",
+      "altura": "165",
+      "id": 1
+    },
+    {
+      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "nome": "Vithor",
+      "email": "vithor@email.com",
+      "nascimento": 700790400000,
+      "genero": "M",
+      "tipo_sanguineo": "A+",
+      "peso": "67",
+      "altura": "175",
+      "id": 2
+    },
+    {
+      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "nome": "Isadora",
+      "email": "isadora@email.com",
+      "nascimento": 700790400000,
+      "genero": "M",
+      "tipo_sanguineo": "A+",
+      "peso": "55",
+      "altura": "160",
+      "id": 3
+    }
+  ],
   "instrutores": [
     {
       "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
